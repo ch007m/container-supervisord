@@ -30,7 +30,7 @@ ADD https://github.com/ochinchina/supervisord/releases/download/v${VERSION}/supe
 
 RUN chgrp -R 0 ${SUPERVISORD_DIR} && \
     chmod -R g+rwX ${SUPERVISORD_DIR} && \
-    chmod -R 666 ${SUPERVISORD_DIR}/conf/* && \
+    chmod -R 666 ${SUPERVISORD_DIR}/conf && \
     chmod 775 ${SUPERVISORD_DIR}/bin/supervisord && \
     chmod 775 ${SUPERVISORD_DIR}/bin/bootstrap && \
     chmod 775 ${SUPERVISORD_DIR}/conf/echo.sh
