@@ -23,6 +23,8 @@ RUN mkdir -p ${SUPERVISORD_DIR}/conf ${SUPERVISORD_DIR}/bin
 COPY --from=builder /supervisord/bootstrap ${SUPERVISORD_DIR}/bin/
 COPY --from=builder /supervisord/conf/ ${SUPERVISORD_DIR}/
 
+RUN ls -la ${SUPERVISORD_DIR}/
+
 RUN echo "VERSION :" ${VERSION}
 
 #add the go supervisord application
