@@ -14,11 +14,11 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o bootstrap main.go
 # Copy the application into a thin image
 FROM busybox
 
-ARG VERSION=0.5
-ARG SUPERVISORD_DIR=/opt/supervisord
+ARG VERSION
+ENV VERSION=${VERSION:-0.5}
 
-ENV SUPERVISORD_DIR=$SUPERVISORD_DIR
-ENV VERSION=$VERSION
+ARG SUPERVISORD_DIR
+ENV SUPERVISORD_DIR=${SUPERVISORD_DIR:-/opt/supervisord}
 
 RUN mkdir -p ${SUPERVISORD_DIR}/conf ${SUPERVISORD_DIR}/bin
 
