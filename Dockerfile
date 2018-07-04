@@ -15,7 +15,7 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o bootstrap main.go
 FROM busybox
 
 ARG VERSION=0.5
-ARG SUPERVISORD_DIR /opt/supervisord
+ARG SUPERVISORD_DIR=/opt/supervisord
 
 RUN mkdir -p ${SUPERVISORD_DIR}/conf ${SUPERVISORD_DIR}/bin
 
