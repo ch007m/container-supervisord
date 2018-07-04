@@ -17,6 +17,9 @@ FROM busybox
 ARG VERSION=0.5
 ARG SUPERVISORD_DIR=/opt/supervisord
 
+ENV SUPERVISORD_DIR=$SUPERVISORD_DIR
+ENV VERSION=$VERSION
+
 RUN mkdir -p ${SUPERVISORD_DIR}/conf ${SUPERVISORD_DIR}/bin
 
 COPY --from=builder /supervisord/bootstrap ${SUPERVISORD_DIR}/bin/
